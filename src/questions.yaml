@@ -1,0 +1,25 @@
+---
+id: projectName
+q: Project name?
+---
+id: author
+q: Author?
+---
+id: license
+q: License?
+opts:
+    - Apache 2
+    - BSD
+    - GPL
+    - MIT
+    - Other
+matches:
+    - Other: otherLicense
+---
+id: otherLicense
+q: Please enter the license
+---
+id: useFizzler
+q: Do you want to use fizzler?
+type: yesno
+
