@@ -9,3 +9,12 @@ import pyqa
 4. output filled template (make sure not to override original!)
 '''
 
+def main():
+    questions = pyqa.load('questions.yaml')
+    answers = pyqa.ask(questions)
+
+    print answers
+
+if __name__ == '__main__':
+    main()
+

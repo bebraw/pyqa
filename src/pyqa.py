@@ -1,13 +1,16 @@
-from __future__ import with_statement
+from __future__ import print_function, with_statement
 import yaml
 
-def load_file(source):
+def load(source):
     with open(source) as f:
         return map(lambda a: a, yaml.load_all(f))
 
-def main():
-    pass
+def ask(questions):
+    def _ask(q):
+        print(q['q'])
+        # XXX: might want to give a nice error about missing id
+        # TODO: deal with matches, yesno and options
+        return {'a': raw_input(), 'id': q['id']}
 
-if __name__ == '__main__':
-    main()
+    return map(_ask, questions)
 
