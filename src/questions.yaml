@@ -7,7 +7,7 @@ q: Author?
 ---
 id: license
 q: License?
-opts:
+choices:
     - Apache 2
     - BSD
     - GPL
