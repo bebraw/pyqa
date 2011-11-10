@@ -14,10 +14,7 @@ choices:
     - MIT
     - Other
 matches:
-    - Other: otherLicense
----
-id: otherLicense
-q: Please enter the license
+    Other: Please enter the license name
 ---
 id: useFizzler
 q: Do you want to use fizzler?

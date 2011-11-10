@@ -27,13 +27,20 @@ def ask(questions):
 
             print('_choice')
 
-            # TODO: deal with matches
             answer = None
             while not in_range(answer, 0, len(q['choices'])):
                 map(lambda (i, c): print(str(i) + ': ' + c), enumerate(q['choices']))
                 answer = raw_input()
 
-            return answer
+            real_answer = q['choices'][int(answer)]
+            match = q['matches'].get(real_answer)
+
+            if match:
+                print(match)
+
+                return raw_input()
+
+            return real_answer
 
         print(q['q'])
 
