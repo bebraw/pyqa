@@ -35,7 +35,7 @@ After the user has finished answering "ask" will return the results in a format 
 {'project_name': 'myproject', 'license': 'BSD', 'use_fizzler': True}
 ```
 
-This format happens to be compatible with pystache (Python version of mustache) and no doubt with many other template engines. Just pass that data to your favorite engine, render and output the file somewhere. Voilá!
+This format happens to be compatible with [pystache](https://github.com/defunkt/pystache) (Python version of [mustache](http://mustache.github.com/)) and no doubt with many other template engines. Just pass that data to your favorite engine, render and output the file somewhere. Voilá!
 
 License
 -------
