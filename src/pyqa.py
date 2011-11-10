@@ -42,8 +42,6 @@ def ask(questions):
 
             return real_answer
 
-        print(q['q'])
-
         def _boolean():
             yes = ('yes', '1', 'true')
             no = ('no', '0', 'false')
@@ -54,6 +52,8 @@ def ask(questions):
                 answer = raw_input().strip().lower()
 
             return answer in yes
+
+        print(q['q'])
 
         a = {
             'answer': lambda: raw_input(),
