@@ -17,11 +17,25 @@ def ask(questions):
 
     def _ask(q):
         def _choice():
-            map(lambda (i, c): print(str(i) + ': ' + c), enumerate(q['choices']))
+            def in_range(o, i, j):
+                try:
+                    return i <= int(o) <= j
+                except TypeError:
+                    return False
+                except ValueError:
+                    return False
 
-            # TODO: make sure input is within proper range
+            print('_choice')
+
             # TODO: deal with matches
-            return raw_input()
+            answer = None
+            while not in_range(answer, 0, len(q['choices'])):
+                map(lambda (i, c): print(str(i) + ': ' + c), enumerate(q['choices']))
+                answer = raw_input()
+
+            return answer
+
+        print(q['q'])
 
         a = {
             'answer': lambda: raw_input(),
