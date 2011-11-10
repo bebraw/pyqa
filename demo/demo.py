@@ -1,4 +1,5 @@
-from __future__ import with_statement
+#!/usr/bin/env python
+from __future__ import print_function, with_statement
 import pystache
 import yaml
 import pyqa
@@ -26,6 +27,7 @@ def main():
     answers = pyqa.ask(questions)
     data = pystache.render(template, answers)
     write('output.py', data)
+    print('inspect output.py for results!')
 
 if __name__ == '__main__':
     main()
