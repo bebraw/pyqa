@@ -44,12 +44,13 @@ def ask(questions):
 
         print(q['q'])
 
-        def _yesno():
+        def _boolean():
             yes = ('yes', '1', 'true')
             no = ('no', '0', 'false')
+            yesno = (yes, no)
 
             answer = None
-            while answer not in (yes or no):
+            while (answer not in yes) and (answer not in no):
                 answer = raw_input().strip().lower()
 
             return answer in yes
@@ -57,7 +58,7 @@ def ask(questions):
         a = {
             'answer': lambda: raw_input(),
             'choice': _choice,
-            'yesno': _yesno,
+            'boolean': _boolean,
         }[q['type']]()
         
         return {'a': a, 'id': q['id']}

@@ -18,5 +18,5 @@ matches:
 ---
 id: useFizzler
 q: Do you want to use fizzler?
-type: yesno
+type: boolean
 
