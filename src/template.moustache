@@ -1,0 +1,11 @@
+# regular substitutions
+project_name = {{ project_name }}
+author = {{ author }}
+license = {{ license }}
+
+# moustache allows blocks like these
+{{#use_fizzler}}
+db = 'sqlite'
+remote = 'fizzler...'
+{{/use_fizzler}}
+

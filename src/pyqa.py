@@ -1,9 +1,5 @@
-from __future__ import print_function, with_statement
-import yaml
+from __future__ import print_function
 
-def load(source):
-    with open(source) as f:
-        return map(lambda a: a, yaml.load_all(f))
 
 def ask(questions):
     def _fill(i):
@@ -15,6 +11,7 @@ def ask(questions):
 
         return map(_f, i)
 
+    ret = {}
     def _ask(q):
         def _choice():
             def in_range(o, i, j):
@@ -60,8 +57,10 @@ def ask(questions):
             'choice': _choice,
             'boolean': _boolean,
         }[q['type']]()
-        
-        return {'a': a, 'id': q['id']}
 
-    return map(_ask, _fill(questions))
+        ret[q['id']] = a
+
+    map(_ask, _fill(questions))
+
+    return ret
 

@@ -1,5 +1,5 @@
 ---
-id: projectName
+id: project_name
 q: Project name?
 ---
 id: author
@@ -16,7 +16,7 @@ choices:
 matches:
     Other: Please enter the license name
 ---
-id: useFizzler
+id: use_fizzler
 q: Do you want to use fizzler?
 type: boolean
 
