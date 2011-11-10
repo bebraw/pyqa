@@ -3,8 +3,6 @@ import pystache
 import yaml
 import pyqa
 
-# TODO: move elsewhere. this is here just for dev purposes
-
 
 def read(name):
     data = None
