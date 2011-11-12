@@ -20,3 +20,15 @@ rejects boolean
 asks boolean multiple times
     questions.boolean(values('foo', 'bar', 'yes')) == True
 
+accepts choice
+    questions.choice(['foo', 'bar', 'baz'], values('0')) == 'foo'
+
+asks choice multiple times
+    questions.choice(['foo', 'bar', 'baz'], values('zob', '3', '2')) == 'baz'
+
+matches choice
+    questions.match({'foo': 's', 'bar': 's'}, 'foo', lambda: 'ret') == 'ret'
+
+does not match choice
+    questions.match({'foo': 's'}, 'zaa', lambda: 'ret') == None
+
