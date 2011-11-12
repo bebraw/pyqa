@@ -1,10 +1,8 @@
-pyqa -- Configuration generator
-===============================
+# pyqa -- Configuration generator
 
 pyqa makes it easier to write terminal based tools which ask the user a bunch of questions and then generate some configuration file based on the answers.
 
-Usage
------
+## Usage
 
 See /demo for a working example.
 
@@ -37,8 +35,7 @@ After the user has finished answering "ask" will return the results in a format 
 
 This format happens to be compatible with [pystache](https://github.com/defunkt/pystache) (Python version of [mustache](http://mustache.github.com/)) and no doubt with many other template engines. Just pass that data to your favorite engine, render and output the file somewhere. Voilá!
 
-License
--------
+## License
 
 pyqa is available under MIT license. See LICENSE for more details.
 
