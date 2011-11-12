@@ -24,11 +24,13 @@ def choice(choices, answers):
 
     return choices[int(answer)]
 
-def match(matches, choice, answer):
+def match(matches, answer, choice):
     match = matches.get(choice)
 
     if match:
         print(match)
 
         return answer()
+
+    return choice
 

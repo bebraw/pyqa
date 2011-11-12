@@ -27,8 +27,8 @@ asks choice multiple times
     questions.choice(['foo', 'bar', 'baz'], values('zob', '3', '2')) == 'baz'
 
 matches choice
-    questions.match({'foo': 's', 'bar': 's'}, 'foo', lambda: 'ret') == 'ret'
+    questions.match({'foo': 's', 'bar': 's'}, lambda: 'ret', 'foo') == 'ret'
 
 does not match choice
-    questions.match({'foo': 's'}, 'zaa', lambda: 'ret') == None
+    questions.match({'foo': 's'}, lambda: 'ret', 'zaa') == 'zaa'
 

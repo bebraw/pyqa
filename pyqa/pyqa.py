@@ -1,4 +1,6 @@
 from __future__ import print_function
+from functools import partial
+from questions import boolean, choice, match
 
 
 def ask(questions):
@@ -7,54 +9,31 @@ def ask(questions):
             o['type'] = o.get('type', 'choice' if o.get('choices') else 'answer') 
             o['id'] = o.get('id') # XXX: warn about missing id?
             o['matches'] = o.get('matches', {})
-
+            o['choices'] = o.get('choices', {})
+            
             return o
 
         return map(_f, i)
 
+    def _input():
+        while True:
+            yield raw_input()
+
+    def union(f, g):
+        def _ret():
+            return g(f())
+
+        return _ret
+
     ret = {}
     def _ask(q):
-        def _choice():
-            def in_range(o, i, j):
-                try:
-                    return i <= int(o) <= j
-                except TypeError:
-                    return False
-                except ValueError:
-                    return False
-
-            answer = None
-            while not in_range(answer, 0, len(q['choices'])):
-                map(lambda (i, c): print(str(i) + ': ' + c), enumerate(q['choices']))
-                answer = raw_input()
-
-            real_answer = q['choices'][int(answer)]
-            match = q['matches'].get(real_answer)
-
-            if match:
-                print(match)
-
-                return raw_input()
-
-            return real_answer
-
-        def _boolean():
-            yes = ('yes', '1', 'true')
-            no = ('no', '0', 'false')
-            yesno = (yes, no)
-
-            answer = None
-            while (answer not in yes) and (answer not in no):
-                answer = raw_input().strip().lower()
-
-            return answer in yes
-
         print(q['q'])
 
         a = {
-            'answer': lambda: raw_input(),
-            'choice': _choice,
-            'boolean': _boolean,
+            'answer': lambda: _input().next(),
+            'choice': union(partial(choice, q['choices'], _input()),
+                partial(match, q['matches'], _input())),
+            'boolean': partial(boolean, _input()),
         }[q['type']]()
 
         ret[q['id']] = a
