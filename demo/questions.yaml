@@ -19,4 +19,11 @@ matches:
 id: use_fizzler
 q: Do you want to use fizzler?
 type: boolean
+---
+id: fail_whale
+q: Do you like fail whale?
+choices:
+    - "Yes" # keyword in yaml. converts to bool without ""
+    - Maybe
+    - "No" # same here!
 

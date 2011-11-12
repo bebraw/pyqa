@@ -27,6 +27,8 @@ q: Are you sure you want to use fizzler?
 type: boolean -- this will accept either true or false answer and emits True/False
 ```
 
+Note that keywords "Yes" and "No" seem to be converted to booleans by YAML. If you need to use those within choices, remember to use explicit form (ie. "Yes" instead of Yes).
+
 After the user has finished answering "ask" will return the results in a format like this:
 
 ```python

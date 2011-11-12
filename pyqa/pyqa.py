@@ -6,6 +6,7 @@ def ask(questions):
         def _f(o):
             o['type'] = o.get('type', 'choice' if o.get('choices') else 'answer') 
             o['id'] = o.get('id') # XXX: warn about missing id?
+            o['matches'] = o.get('matches', {})
 
             return o
 
@@ -21,8 +22,6 @@ def ask(questions):
                     return False
                 except ValueError:
                     return False
-
-            print('_choice')
 
             answer = None
             while not in_range(answer, 0, len(q['choices'])):
