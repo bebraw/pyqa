@@ -4,5 +4,5 @@
 from pyqa import ask
 
 __author__ = 'Juho Vepsäläinen'
-__version__ = '0.5.1'
+__version__ = '0.5.2'
 
