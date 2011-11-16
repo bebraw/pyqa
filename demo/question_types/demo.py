@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+'''This demo illustrates how to set up a simple questionnaire using YAML and
+then output the results to a Moustache template.
+
+If you are missing the deps, use "pip install -r requirements.txt".
+'''
 from __future__ import print_function, with_statement
 import pystache
 import yaml
