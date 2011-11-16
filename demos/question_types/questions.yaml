@@ -13,8 +13,6 @@ choices:
     - GPL
     - MIT
     - Other
-matches:
-    Other: Please enter the license name
 ---
 id: use_fizzler
 q: Do you want to use fizzler?

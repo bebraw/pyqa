@@ -30,20 +30,3 @@ def choice(choices, answers):
     except ValueError:
         return answer
 
-def match(matches, answer, choice):
-    match = matches.get(choice)
-
-    if match:
-        print(match)
-
-        return answer.next()
-    else:
-        values = matches.values()
-
-        if choice in values:
-            print(matches.keys()[values.index(choice)])
-
-            return answer.next()
-
-    return choice
-

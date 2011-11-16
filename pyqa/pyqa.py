@@ -24,12 +24,6 @@ def ask(questions, answers={}):
 
             yield user_input
 
-    def union(f, g):
-        def _ret():
-            return g(f())
-
-        return _ret
-
     ret = {}
     def _ask(q):
         qid = q['id']
@@ -42,13 +36,10 @@ def ask(questions, answers={}):
 
         print(question)
 
-        # TODO: figure out how to deal with choice match and predefined
-        # answer! need to redesign that
         user_input = _input(answer)
         a = {
             'answer': lambda: user_input.next(),
-            'choice': union(partial(choice, q['choices'], user_input),
-                partial(match, q['matches'], user_input)),
+            'choice': partial(choice, q['choices'], user_input),
             'boolean': partial(boolean, user_input),
         }[q['type']]()
 

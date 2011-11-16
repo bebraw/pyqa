@@ -4,7 +4,7 @@ pyqa makes it easier to write terminal based tools which ask the user a bunch of
 
 ## Usage
 
-See /demo for a working example.
+See /demos for some working examples.
 
 pyqa provides single function, "ask". It expects a set of questions given in a specific format. The following description is in YAML but you are free to use any other markup language as long as the output matches:
 
@@ -17,9 +17,7 @@ pyqa provides single function, "ask". It expects a set of questions given in a s
     choices: # if choices field is used, the user will see these as numbered choice
         - BSD
         - GPL
-        - Other
-    matches:
-        Other: Please enter the license name -- define custom question for "other" case
+        - MIT
     ---
     id: use_fizzler
     q: Are you sure you want to use fizzler?

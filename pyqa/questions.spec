@@ -32,12 +32,3 @@ accepts choice by name with upper
 asks choice multiple times
     questions.choice(['foo', 'bar', 'baz'], values('zob', '3', '2')) == 'baz'
 
-matches choice
-    questions.match({'foo': 's', 'bar': 'qoo'}, values('ret'), 'foo') == 'ret'
-
-matches choice by value
-    questions.match({'foo': 's', 'bar': 'qoo'}, values('ret'), 's') == 'ret'
-
-does not match choice
-    questions.match({'foo': 's'}, values('ret'), 'zaa') == 'zaa'
-
