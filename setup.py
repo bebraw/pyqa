@@ -2,22 +2,13 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
 import pyqa
-import subprocess
-
-def pandoc(source, from_format, to_format):
-    # http://osiux.com/html-to-restructured-text-in-python-using-pandoc
-    # raises OSError if pandoc is not found!
-    p = subprocess.Popen(['pandoc', '--from=' + from_format, '--to=' + to_format],
-        stdin=subprocess.PIPE, stdout=subprocess.PIPE
-        )
-    return p.communicate(source)[0]
 
 description = 'pyqa makes it easy to write conversational scripts that generate configuration'
 try:
-    md = open('README.md').read()
+    from pypandoc import convert
 
-    long_description = pandoc(md, 'markdown', 'rst')
-except (IOError, OSError):
+    long_description = convert('README.md', 'rst')
+except (ImportError, IOError, OSError):
     print 'check that you have installed pandoc properly and that README.md exists!'
     long_description = description
 
