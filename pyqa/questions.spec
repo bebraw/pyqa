@@ -32,3 +32,12 @@ accepts choice by name with upper
 asks choice multiple times
     questions.choice(['foo', 'bar', 'baz'], values('zob', '3', '2')) == 'baz'
 
+accepts other choice
+    questions.choice(['foo', 'bar', 'baz'], values('3', 'booboo')) == 'booboo'
+
+accepts other choice by name
+    questions.choice(['foo', 'bar', 'baz'], values('other', 'booboo')) == 'booboo'
+
+accepts other choice by name with upper
+    questions.choice(['foo', 'bar', 'baz'], values('oTher', 'booboo')) == 'booboo'
+
