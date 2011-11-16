@@ -1,4 +1,6 @@
 from __future__ import print_function
+from string import lower
+
 
 def boolean(answers):
     yes = ('yes', '1', 'true')
@@ -16,13 +18,17 @@ def choice(choices, answers):
             return i <= int(o) <= j
         except (TypeError, ValueError):
             return False
+    lower_choices = map(lower, choices)
 
-    answer = None
-    while not in_range(answer, 0, len(choices) - 1):
+    answer = ''
+    while (not in_range(answer, 0, len(choices) - 1)) and (answer.lower() not in lower_choices):
         map(lambda (i, c): print(str(i) + ': ' + c), enumerate(choices))
-        answer = answers.next()
+        answer = answers.next() or ''
 
-    return choices[int(answer)]
+    try:
+        return choices[int(answer)]
+    except ValueError:
+        return answer
 
 def match(matches, answer, choice):
     match = matches.get(choice)
@@ -30,7 +36,14 @@ def match(matches, answer, choice):
     if match:
         print(match)
 
-        return answer()
+        return answer.next()
+    else:
+        values = matches.values()
+
+        if choice in values:
+            print(matches.keys()[values.index(choice)])
+
+            return answer.next()
 
     return choice
 

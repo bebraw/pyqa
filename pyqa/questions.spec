@@ -23,12 +23,21 @@ asks boolean multiple times
 accepts choice
     questions.choice(['foo', 'bar', 'baz'], values('0')) == 'foo'
 
+accepts choice by name
+    questions.choice(['foo', 'bar', 'baz'], values('foo')) == 'foo'
+
+accepts choice by name with upper
+    questions.choice(['foo', 'bar', 'baz'], values('Foo')) == 'Foo'
+
 asks choice multiple times
     questions.choice(['foo', 'bar', 'baz'], values('zob', '3', '2')) == 'baz'
 
 matches choice
-    questions.match({'foo': 's', 'bar': 's'}, lambda: 'ret', 'foo') == 'ret'
+    questions.match({'foo': 's', 'bar': 'qoo'}, values('ret'), 'foo') == 'ret'
+
+matches choice by value
+    questions.match({'foo': 's', 'bar': 'qoo'}, values('ret'), 's') == 'ret'
 
 does not match choice
-    questions.match({'foo': 's'}, lambda: 'ret', 'zaa') == 'zaa'
+    questions.match({'foo': 's'}, values('ret'), 'zaa') == 'zaa'
 

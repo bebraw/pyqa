@@ -1,0 +1,29 @@
+---
+id: project_name
+q: Project name?
+---
+id: author
+q: Author?
+---
+id: license
+q: License?
+choices:
+    - Apache 2
+    - BSD
+    - GPL
+    - MIT
+    - Other
+matches:
+    Other: Please enter the license name
+---
+id: use_fizzler
+q: Do you want to use fizzler?
+type: boolean
+---
+id: fail_whale
+q: Do you like fail whale?
+choices:
+    - "Yes" # keyword in yaml. converts to bool without ""
+    - Maybe
+    - "No" # same here!
+
