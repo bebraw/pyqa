@@ -15,18 +15,21 @@ def ask(questions, answers={}):
 
         return map(_f, i)
 
-    def _input(answer):
+    def _input(*answers):
         while True:
             user_input = raw_input()
 
-            if len(user_input) == 0 and answer:
-                yield answer
+            if len(user_input) == 0 and answers:
+                for a in answers:
+                    yield a
 
             yield user_input
 
     ret = {}
     def _ask(q):
         qid = q['id']
+        qtype = q['type']
+        qchoices = q['choices']
         question = q['q']
         answer = None
 
@@ -37,11 +40,15 @@ def ask(questions, answers={}):
         print(question)
 
         user_input = _input(answer)
+
+        if qtype == 'choice' and answer not in qchoices:
+            user_input = _input('Other', answer)
+
         a = {
             'answer': lambda: user_input.next(),
-            'choice': partial(choice, q['choices'], user_input),
+            'choice': partial(choice, qchoices, user_input),
             'boolean': partial(boolean, user_input),
-        }[q['type']]()
+        }[qtype]()
 
         ret[qid] = a
 
