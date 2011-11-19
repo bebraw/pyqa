@@ -1,3 +1,5 @@
+from pyqa import questions
+
 def values(*args):
     for arg in args:
         yield arg
