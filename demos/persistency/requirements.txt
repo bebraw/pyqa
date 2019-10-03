@@ -1,2 +1,2 @@
-PyYAML==3.10
+PyYAML==5.1
 pystache==0.3.1
